@@ -1,20 +1,18 @@
-<div class="container">
+function addTask() {
+  let input = document.getElementById("taskInput");
 
-    <h1>TaskFlow</h1>
+  let task = input.value.trim();
 
-    <p>Simple Task Manager</p>
+  if (task === "") {
+    alert("Please enter a task");
+    return;
+  }
 
-    <input
-        type="text"
-        id="taskInput"
-        placeholder="Enter a task">
+  let li = document.createElement("li");
 
-    <button onclick="addTask()">
-        Add Task
-    </button>
+  li.innerText = task;
 
-    <ul id="taskList"></ul>
+  document.getElementById("taskList").appendChild(li);
 
-</div>
-
-<script src="script.js"></script>
+  input.value = "";
+}
